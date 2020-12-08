@@ -1,0 +1,11 @@
+class Solution {
+    public int arrangeCoins(int n) {
+        if(n<2) return n;
+        if(n>=2147450880) return 65535;
+        int i=1;
+        int l=1 + 4*(n*2);
+        while(i*i<=l) i++;
+        i--;
+        return (i-1)/2;
+    }
+}
