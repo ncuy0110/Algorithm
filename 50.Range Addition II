@@ -1,0 +1,18 @@
+class Solution {
+    public int maxCount(int m, int n, int[][] a) {
+        if(a.length==0) return m*n;
+        int mmin = a[0][0];
+        int nmin = a[0][1];
+        int max=mmin*nmin;
+        for(int i=1; i<a.length; i++){
+            if(a[i][0]<mmin){
+                mmin = a[i][0]; 
+            }
+            if(a[i][1]<nmin){
+                 nmin=a[i][1];
+            }
+        }
+        max=mmin*nmin;
+        return max;
+    }
+}
