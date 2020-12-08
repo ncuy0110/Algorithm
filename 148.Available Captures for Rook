@@ -1,0 +1,46 @@
+class Solution {
+    public int numRookCaptures(char[][] a) {
+        int sum=0;
+        for(int i=0; i<8; i++){
+            for(int j=0; j<8; j++){
+                if(a[i][j]=='R'){
+                    if(j>0){
+                        for(int k=j-1; k>=0; k--){
+                            if(a[i][k]=='p'){
+                                sum++;
+                                break;
+                            }else if(a[i][k]=='B') break;
+                        }
+                    }
+                    if(j<7){
+                        for(int k=j+1; k<8; k++){
+                            if(a[i][k]=='p'){
+                                sum++;
+                                break;
+                            }else if(a[i][k]=='B') break;
+                        }
+                    }
+                    if(i>0){
+                        for(int k=i-1; k>=0; k--){
+                            if(a[k][j]=='p'){
+                                sum++;
+                                break;
+                            }else if(a[k][j]=='B') break;
+                        }
+                    }
+                    if(i<7){
+                        for(int k=i+1; k<8; k++){
+                            if(a[k][j]=='p'){
+                                sum++;
+                                break;
+                            }else if(a[k][j]=='B') break;
+                        }
+                    }
+                    break;
+                }
+                
+            }
+        }
+        return sum;
+    }
+}
