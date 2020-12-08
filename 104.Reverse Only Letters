@@ -1,0 +1,12 @@
+class Solution {
+    public String reverseOnlyLetters(String S) {
+        String t ="";
+        for(int i=S.length()-1; i>=0; i--){
+            if((S.charAt(i)>='a' && S.charAt(i)<='z') || (S.charAt(i)>='A' && S.charAt(i) <='Z')) t=t+S.charAt(i);
+        }
+        for(int i=0; i<S.length(); i++){
+            if(S.charAt(i)<'A' || (S.charAt(i)>'Z' && S.charAt(i)<'a') || S.charAt(i)>'z')  t= t.substring(0,i) + S.charAt(i) + t.substring(i);
+        }
+        return t;
+    }
+}
