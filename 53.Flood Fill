@@ -1,0 +1,15 @@
+class Solution {
+    public void change(int[][] a, int m, int n, int k){
+        
+    }
+    public int[][] floodFill(int[][] a, int m, int n, int k) {
+        int i=a[m][n];
+        if(i==k) return a;
+        a[m][n]=k;
+        if(m>0 && a[m-1][n]==i) floodFill(a,m-1,n,k);
+        if(n>0 && a[m][n-1]==i) floodFill(a,m,n-1,k);
+        if(m+1<a.length && a[m+1][n]==i) floodFill(a,m+1, n, k);
+        if(n+1<a[0].length && a[m][n+1]==i) floodFill(a,m,n+1, k);
+        return a;
+    }
+}
