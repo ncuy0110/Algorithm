@@ -1,0 +1,14 @@
+class Solution {
+    public String convertToBase7(int n) {
+        if(n==0) return "0";
+        String s = "";
+        int k=n;
+        n = Math.abs(n);
+        while(n>0){
+            s = n%7 + s;
+            n/=7;
+        }
+        if(k<0) s="-" + s;
+        return s;
+    }
+}
