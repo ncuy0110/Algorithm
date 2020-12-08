@@ -1,0 +1,16 @@
+class Solution {
+    public int majorityElement(int[] a) {
+        Arrays.sort(a);
+        int max=0;
+        int k=1;
+        int i=0;
+        while(i<a.length){
+            int j=i;
+            while(j<a.length && a[i]==a[j]) j++;
+            if(j-i>=a.length/2 + 1) return a[i];
+            i=j;
+            
+        }
+        return -1;
+    }
+}
