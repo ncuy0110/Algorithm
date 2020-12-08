@@ -1,0 +1,17 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        if(s.length()==0) return -1;
+        int[] a = new int[123];
+        int min=s.length();
+        for(int i=0; i<s.length();i++){
+            a[(int)s.charAt(i)]++;
+        }
+        for(int i=97; i<123; i++){
+            if(a[i]==1) {
+                if(s.indexOf((char)i)<min) min=s.indexOf((char)i);
+            }
+        }
+        if(min==s.length()) return -1;
+        return min;
+    }
+}
