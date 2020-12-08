@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isHappy(int n) {
+        if(n==1) return true;
+        int sum = 0;
+        int j=0;
+        while(n!=1 && n!=2 && j<15){
+            int i=n;
+            while(i>0){
+                sum = sum + (i%10)*(i%10);
+                i/=10;
+            }
+            j++;
+            n=sum;
+            sum=0;
+        }
+        if(n!=1) return false;
+        return true;
+    }
+}
