@@ -1,0 +1,55 @@
+class Solution {
+    public String toHex(int n) {
+        String s="";
+        if(n>=0 && n<10) return ""+n;
+        if(n>9){
+            while(n>0){
+                if(n%16 >9) s=(char)(n%16+87) + s;
+                else s = (n%16)+ s;
+                n/=16;
+            }
+        }else{
+            String p = String.valueOf(n);
+            long n1=0;
+            n1 = Long.parseLong(p.substring(1));
+            while(n1>0){
+                if(n1%16 >9) s=(char)(n1%16+87) + s;
+                else s = (n1%16)+ s;
+                n1/=16;
+            }
+            while(s.length()%8 !=0) s="0"+s;
+            String t="";
+            int k=0;
+            for(int i=0; i<s.length(); i++){
+                if((int)s.charAt(i)>=48 && (int)s.charAt(i) <=57){
+                    k=(int)s.charAt(i) - 48;
+                }else k=(int)s.charAt(i) - 87;
+                k = 15-k;
+                if(k%16>9) t= t+ (char)(k%16 + 87);
+                    else t = t+ (k%16);
+            }
+            s=t;
+            int j=1;
+            int i=s.length()-1;
+            k=0;
+            t="";
+            for(i=s.length()-1; i>=0; i--){
+                if((int)(s.charAt(i))>=48 && (int)(s.charAt(i)) <=57){
+                    k=(int)s.charAt(i) - 48;
+                }else k=(int)s.charAt(i) - 87;
+                if(k+j<16){
+                    k+=j;
+                    if(k%16>9) t= (char)(k%16 + 87) + t;
+                    else t = (k%16) + t;
+                    j=0;
+                }else{
+                    k+=j;
+                    if(k%16>9) t= (char)(k%16 + 87) + t;
+                    else t = (k%16) + t;
+                }
+            }
+            s=t;
+        }
+        return s;
+    }
+}
