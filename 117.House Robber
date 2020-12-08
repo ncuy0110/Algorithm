@@ -1,0 +1,13 @@
+class Solution {
+    public int rob(int[] a) {
+        if(a.length==0) return 0;
+        if(a.length==1) return a[0];
+        if(a.length==2) return Math.max(a[0], a[1]);
+        if(a.length==3) return Math.max(a[0]+a[2], a[1]);
+        a[2]=a[2]+a[0];
+        for(int i=3; i<a.length; i++){
+            a[i]=Math.max(a[i-2], a[i-3])+a[i];
+        }
+        return Math.max(a[a.length-1], a[a.length-2]);
+    }
+}
