@@ -1,0 +1,12 @@
+class Solution {
+    public int distributeCandies(int[] a) {
+        Arrays.sort(a);
+        int count = 1;
+        
+        for (int i=1; i<a.length; i++){
+            if(a[i]>a[i-1]) count++;
+        }
+        if(count>= a.length / 2) return a.length/2;
+        else return count;
+    }
+}
