@@ -1,0 +1,32 @@
+class Solution {
+    public int demso1(int n){
+        int sum=0;
+        while(n>0){
+            sum= sum + n%2;
+            n/=2;
+        }
+        return sum;
+    }
+    public int countPrimeSetBits(int L, int R) {
+        int sum=0;
+        int num = R/2 + 1;
+    boolean[] bool = new boolean[num];
+
+      for (int i = 0; i< bool.length; i++) {
+         bool[i] = true;
+      }
+        bool[0] = false;
+        bool[1] = false;
+      for (int i = 2; i< Math.sqrt(num); i++) {
+         if(bool[i] == true) {
+            for(int j = (i*i); j<num; j = j+i) {
+               bool[j] = false;
+            }
+         }
+      }
+        for(int i=L; i<=R; i++) {
+            if(bool[demso1(i)]) sum++;
+        }
+        return sum;
+    }
+}
