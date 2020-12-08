@@ -1,0 +1,25 @@
+class Solution {
+    public int findLHS(int[] a) {
+        Arrays.sort(a);
+        int sum=0;
+        int pre=0;
+        int now=0;
+        int i=0;
+        while(i<a.length && a[i]==a[0]) i++;
+        if(i==a.length) return 0;
+        pre = i;
+        int j=0;
+        while(i<a.length){
+            j=i;
+            while(j<a.length && a[j]==a[i]) j++;
+            now = j-i;
+            if(a[i]-a[i-1]==1) {
+                if(pre + now > sum) sum=pre + now;
+            }
+            pre = now;
+            i=j;
+        }
+        return sum;
+        
+    }
+}
