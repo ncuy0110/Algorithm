@@ -1,0 +1,17 @@
+class Solution {
+    public String reverseStr(String s, int k) {
+        String t = "";
+        String temp="";
+        int n = s.length();
+        for(int i=0; i<n; i++){
+            if((i/k)%2 == 0) temp=s.charAt(i)+temp;
+            else temp+=s.charAt(i);
+            if(temp.length()==2*k) {
+                t=t+temp;
+                temp="";
+            }
+        }
+        if(t.length()<n) t+=temp;
+        return t;
+    }
+}
