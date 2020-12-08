@@ -1,0 +1,10 @@
+class Solution {
+    public boolean checkRecord(String s) {
+        if(s.indexOf("LLL")>=0) return false;
+        else {
+            s=s.replaceFirst("A","");
+            if(s.indexOf("A")!= -1) return false;
+        }
+        return true;
+    }
+}
