@@ -1,0 +1,131 @@
+class Solution {
+    private String h,k,t;
+    public static String convert (char toEncode)  
+    {  
+        String morse = "";  
+        String t = Character.toString(toEncode);
+        if (t.equalsIgnoreCase("a"))  
+            morse = ".-";  
+        if (t.equalsIgnoreCase("b"))  
+            morse = "-...";  
+        if (t.equalsIgnoreCase("c"))  
+            morse = "-.-.";  
+        if (t.equalsIgnoreCase("d"))  
+            morse = "-..";  
+        if (t.equalsIgnoreCase("e"))  
+            morse = ".";  
+        if (t.equalsIgnoreCase("f"))  
+            morse = "..-.";  
+        if (t.equalsIgnoreCase("g"))  
+            morse = "--.";  
+        if (t.equalsIgnoreCase("h"))  
+            morse = "....";  
+        if (t.equalsIgnoreCase("i"))  
+            morse = "..";  
+        if (t.equalsIgnoreCase("j"))  
+            morse = ".---";  
+        if (t.equalsIgnoreCase("k"))  
+            morse = "-.-";  
+        if (t.equalsIgnoreCase("l"))  
+            morse = ".-..";  
+        if (t.equalsIgnoreCase("m"))  
+            morse = "--";  
+        if (t.equalsIgnoreCase("n"))  
+            morse = "-.";  
+        if (t.equalsIgnoreCase("o"))  
+            morse = "---";  
+        if (t.equalsIgnoreCase("p"))  
+            morse = ".--.";  
+        if (t.equalsIgnoreCase("q"))  
+            morse = "--.-";  
+        if (t.equalsIgnoreCase("r"))  
+            morse = ".-.";  
+        if (t.equalsIgnoreCase("s"))  
+            morse = "...";  
+        if (t.equalsIgnoreCase("t"))  
+            morse = "-";  
+        if (t.equalsIgnoreCase("u"))  
+            morse = "..-";  
+        if (t.equalsIgnoreCase("v"))  
+            morse = "...-";  
+        if (t.equalsIgnoreCase("w"))  
+            morse = ".--";  
+        if (t.equalsIgnoreCase("x"))  
+            morse = "-..-";  
+        if (t.equalsIgnoreCase("y"))  
+            morse = "-.--";  
+        if (t.equalsIgnoreCase("z"))  
+            morse = "--..";  
+        if (t.equalsIgnoreCase("0"))  
+            morse = "-----";  
+        if (t.equalsIgnoreCase("1"))  
+            morse = ".----";  
+        if (t.equalsIgnoreCase("2"))  
+            morse = "..---";  
+        if (t.equalsIgnoreCase("3"))  
+            morse = "...--";  
+        if (t.equalsIgnoreCase("4"))  
+            morse = "....-";  
+        if (t.equalsIgnoreCase("5"))  
+            morse = ".....";  
+        if (t.equalsIgnoreCase("6"))  
+            morse = "-....";  
+        if (t.equalsIgnoreCase("7"))  
+            morse = "--...";  
+        if (t.equalsIgnoreCase("8"))  
+            morse = "---..";  
+        if (t.equalsIgnoreCase("9"))  
+            morse = "----.";  
+        if (t.equalsIgnoreCase("."))  
+            morse = ".-.-";  
+        if (t.equalsIgnoreCase(","))  
+            morse = "--..--";  
+        if (t.equalsIgnoreCase("?"))  
+            morse = "..--..";  
+
+        return morse;  
+    }
+    public String ArraytoString(String[] s){
+        String t="";
+        for(int i=0; i<s.length; i++){
+            t=t+s[i]+" ";
+        }
+        return t;
+    } 
+    public String cut(String t){
+        String k="";
+        String h="";
+        String s="";
+        while(t.length()>0){
+            k="";
+            k=t.substring(0,t.indexOf(" "));
+            h=h+k+" ";
+            k=k+" ";
+            t=t.replace(k,"");
+            
+        }
+        return h;
+    }
+    public String con(String h){
+        int i=0;
+        k="";
+        while(i<h.length()){
+            if(h.charAt(i)==' ') k+=" ";
+                else k=k+ convert(h.charAt(i));
+            i++;
+        }
+        return k;
+    }
+    public int uniqueMorseRepresentations(String[] words) {
+        int count=0;
+        String s="";
+        s=ArraytoString(words);
+        s=cut(s);
+        s=con(s);
+        s=cut(s);
+        // s=cut(convert(cut(ArraytoString(words))));
+        for(int i=0; i<s.length(); i++)
+            if (s.charAt(i)==' ') count++;
+        return count;
+    }
+}
